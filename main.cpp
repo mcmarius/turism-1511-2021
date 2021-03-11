@@ -11,6 +11,10 @@
 int main() {
     Turist t1("nume", 400);
     Obiectiv ob1("Biserica neagra");
+    Obiectiv ob2(""), ob3(ob1);
+    ob2 = ob1;
+    std::cout << ob2 << ob3;
+
     Locatie l_start("Bucuresti", 0); // TODO coordonate
     Locatie l1("Brasov", 100); // TODO coordonate
     Sejur s({l_start, l1});

@@ -8,8 +8,11 @@
 #include <string>
 
 class Locatie {
+    std::string nume;
+    int pret;
 public:
-    Locatie(const std::string nume, int pret_locatie);
+    Locatie(const std::string &nume, int pret);
+    int getPret() const;
 };
 
 #endif //TURISM_1511_2021_LOCATIE_H

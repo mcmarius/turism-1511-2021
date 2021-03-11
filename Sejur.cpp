@@ -5,8 +5,14 @@
 #include "Sejur.h"
 
 void Sejur::adauga_ghid() {
+    ghid = true;
 }
 
 double Sejur::pret_total() {
-    return 0;
+    double total = 0;
+    for(auto &locatie : locatii)
+        total += locatie.getPret();
+    return total;
 }
+
+Sejur::Sejur(const std::vector <Locatie> &locatii) : locatii(locatii) {}

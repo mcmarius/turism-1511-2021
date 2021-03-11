@@ -9,8 +9,10 @@
 #include "Locatie.h"
 
 class Sejur {
+    std::vector <Locatie> locatii;
+    bool ghid = false;
 public:
-    Sejur(std::vector <Locatie> locatii);
+    Sejur(const std::vector <Locatie> &locatii);
     void adauga_ghid();
     double pret_total();
 };
