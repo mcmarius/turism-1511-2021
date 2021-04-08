@@ -6,13 +6,14 @@
 #define TURISM_1511_2021_SEJUR_H
 
 #include <vector>
+#include <memory>
 #include "Locatie.h"
 
 class Sejur {
-    std::vector <Locatie> locatii;
+    std::vector <std::unique_ptr <Locatie>> locatii;
     bool ghid = false;
 public:
-    Sejur(const std::vector <Locatie> &locatii);
+    Sejur(std::vector <std::unique_ptr <Locatie>> &&locatii);
     void adauga_ghid();
     double pret_total();
 };
