@@ -10,22 +10,22 @@
 #include "Sejur.h"
 #include "LocatieMunte.h"
 #include "LocatieMare.h"
-#include <nlohmann/json.hpp>
+//#include <nlohmann/json.hpp>
 
-using json = nlohmann::json;
-using str_int = std::variant <int, std::string>;
-
-struct adl_serializer {
-    static void to_json(json &j, const str_int &value) {
-        // calls the "to_json" method in T's namespace
-        j = json({});
-    }
-
-    static void from_json(const json &j, str_int &value) {
-        // same thing, but with the "from_json" method
-        //j.at()
-    }
-};
+//using json = nlohmann::json;
+//using str_int = std::variant <int, std::string>;
+//
+//struct adl_serializer {
+//    static void to_json(json &j, const str_int &value) {
+//        // calls the "to_json" method in T's namespace
+//        j = json({});
+//    }
+//
+//    static void from_json(const json &j, str_int &value) {
+//        // same thing, but with the "from_json" method
+//        //j.at()
+//    }
+//};
 
 //Locatie* locatie_noua(const std::string& nume, int pret) {
 //    if(pret <= 0)
