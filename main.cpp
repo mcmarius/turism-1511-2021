@@ -93,6 +93,15 @@ int main() {
     std::vector <std::shared_ptr <Locatie>> loc3;
     std::vector <std::weak_ptr <Locatie>> loc4;
 
+    struct nod {
+        std::weak_ptr <nod> next;
+    };
+    std::shared_ptr <nod> n1, n2;
+    n1 = std::make_shared <nod>();
+    n2 = std::make_shared <nod>();
+    n1->next = n2;
+    n2->next = n1;
+
     Obiectiv ob1("Biserica neagra", std::make_unique <LocatieMunte>(bv));
 //    Obiectiv ob2(""), ob3(ob1);
 //    ob2 = ob1;
@@ -132,10 +141,17 @@ int main() {
     // sad initialization list noises - nu merge cu liste de initializare
     // pt ca nu poate garanta ca nu se arunca exceptii or smth :(
     std::vector <std::unique_ptr <Locatie>> vec;
-    vec.emplace_back(l0.clone());
-    vec.emplace_back(l1.clone());
+    vec.emplace_back(std::make_unique <LocatieMunte>("Cluj", 123));
+    vec.emplace_back(std::make_unique <LocatieMare>("Constanta", 321));
+//    vec.emplace_back(l0.clone());
+//    vec.emplace_back(l1.clone());
     Sejur s(std::move(vec));
     s.adauga_ghid();
+
+//    Sejur s1(s);
+//    Sejur s1(std::move(s));
+//    std::cout << s1.pret_total();
+//    s1 = s;
 
     std::cout << "sejurul costa " << s.pret_total();
     t1.planifica(s);

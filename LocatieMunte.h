@@ -8,8 +8,10 @@
 #include "Locatie.h"
 
 class LocatieMunte : public Locatie {
+    int altitudine;
 public:
     LocatieMunte(const std::string &nume, int pret);
+    LocatieMunte(const std::string &nume, int pret, int altitudine);
 
 //    LocatieMunte(const LocatieMunte& l) : Locatie(l.nume, l.pret) {}
     int getPret() const override;

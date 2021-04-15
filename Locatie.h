@@ -14,7 +14,7 @@ protected:
     int pret;
 public:
     Locatie(const std::string &nume, int pret);
-    Locatie(const Locatie &) noexcept = default;
+//    Locatie(const Locatie &) noexcept = default;
     virtual std::unique_ptr <Locatie> clone() = 0;
     virtual int getPret() const = 0;
     virtual ~Locatie();

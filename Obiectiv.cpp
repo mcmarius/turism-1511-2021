@@ -20,6 +20,7 @@ std::ostream &operator<<(std::ostream &os, const Obiectiv &obiectiv) {
 Obiectiv &Obiectiv::operator=(const Obiectiv &ob) {
     if(this != &ob) {  /// beware of self assignment
         nume = ob.nume;
+        locatie = ob.locatie->clone();
     }
     std::cout << "op= obiectiv " << nume << "\n";
     return *this;

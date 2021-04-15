@@ -13,7 +13,9 @@ class Sejur {
     std::vector <std::unique_ptr <Locatie>> locatii;
     bool ghid = false;
 public:
-    Sejur(std::vector <std::unique_ptr <Locatie>> &&locatii);
+    explicit Sejur(std::vector <std::unique_ptr <Locatie>> &&locatii);
+//    Sejur(const Sejur&) = delete;
+//    Sejur(Sejur&&) = default;
     void adauga_ghid();
     double pret_total();
 };

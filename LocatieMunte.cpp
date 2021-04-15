@@ -13,3 +13,6 @@ LocatieMunte::LocatieMunte(const std::string &nume, int pret) : Locatie(nume, pr
 std::unique_ptr <Locatie> LocatieMunte::clone() {
     return std::make_unique <LocatieMunte>(*this);
 }
+
+LocatieMunte::LocatieMunte(const std::string &nume, int pret, int altitudine)
+: Locatie(nume, pret), altitudine(altitudine) {}
