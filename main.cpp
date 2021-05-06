@@ -61,6 +61,36 @@ public:
 
 int f(double x) { return 0; }*/
 
+
+class Baza {
+protected:
+    int x;
+public:
+    Baza(const Baza &) = delete;
+    Baza &operator=(const Baza &) = delete;
+
+    Baza() {}
+
+    virtual void fv() {}
+};
+class D1 : virtual public Baza {
+public:
+    int fv(int x = 0) {
+        return 0;
+    }
+
+    void fv() override {
+    }
+};
+class D2 : virtual public Baza {};
+class D12 : public D1, public D2 {
+    void f() {
+        D1::x;
+        D2::x;
+        x;
+    }
+};
+
 int main() {
     /*std::cout << sizeof(B1) << "\n";
     std::cout << sizeof(B2) << "\n";
@@ -75,6 +105,8 @@ int main() {
     std::cout << sizeof(int (*)(double)) << "\n";
 
     return 0;*/
+    Baza b1, b2;
+//    b1 = b2;
 
 
 
@@ -96,12 +128,19 @@ int main() {
     struct nod {
         std::weak_ptr <nod> next;
     };
-    std::shared_ptr <nod> n1, n2;
+    std::shared_ptr <nod> n1, n2, n3;
     n1 = std::make_shared <nod>();
     n2 = std::make_shared <nod>();
+    {
+        std::shared_ptr <nod> n4;
+        n4 = std::make_shared <nod>();
+        n3 = std::shared_ptr <nod>({n1});
+    }
     n1->next = n2;
     n2->next = n1;
 
+    std::cout << Turist::getNrTuristi() << "\n";
+    std::cout << t1.getNrTuristi() << "\n";
     Obiectiv ob1("Biserica neagra", std::make_unique <LocatieMunte>(bv));
 //    Obiectiv ob2(""), ob3(ob1);
 //    ob2 = ob1;
@@ -168,3 +207,9 @@ void locatie_noua_v2() {
     Obiectiv o("Parc Cismigiu", std::move(l_start));
     std::cout << "dupa construirea obiectului\n";
 }
+
+class Abc {
+    void f();
+};
+
+void Abc::f() {}

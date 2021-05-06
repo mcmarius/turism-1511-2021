@@ -7,7 +7,9 @@
 
 #include <utility>
 
-Turist::Turist(std::string nume, int buget) : nume(std::move(nume)), buget(buget) {}
+Turist::Turist(std::string nume, int buget) : nume(std::move(nume)), buget(buget) {
+    nr_turisti++;
+}
 
 void Turist::planifica(const Sejur &sejur) {
 }
@@ -30,4 +32,14 @@ std::ostream &operator<<(std::ostream &os, const Turist &turist) {
 void Turist::adauga(const Obiectiv &obiectiv) {
     obiective.push_back(obiectiv);
 }
+
+Turist::~Turist() {
+    nr_turisti--;
+}
+
+int Turist::getNrTuristi() {
+    return nr_turisti;
+}
+
+//int Turist::nr_turisti = 0;
 
